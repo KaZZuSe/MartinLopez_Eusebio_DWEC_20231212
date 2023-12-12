@@ -10,8 +10,48 @@
     <h1>Suma de Números Primos</h1>
     <button onclick="calcularSumaPrimos()">Calcular Suma de Números Primos</button>
     <div id="resultados"></div>
+    <script>
+        /* 
+        Crearemos la función "calcularSumaPrimos", este nombre lo recibe por la funcion que va a ejecutar el botón
+        */
+        function calcularSumaPrimos() {
+            // crearemos un contador para controlar el bucle de los numeros que vamos a pedir al usuario.
+            var contador = 0;
+            // crearemos una variable total para poder realizar la suma de los numeros primos.
+            var total = 0;
+            // comenzamos el bucle para pedir los 15 numeros al usuario.
+            while (contador < 15) {
+                // variable que almacenará el numero del usuario
+                let numeroUsuario = Number(prompt("Introduce número: "));
+                // inicializaremos una variable de carácter booleano para cambiar el valor si no es primo o dejarlo como true
+                let numeroPrimo = true;
+                /*  
+                Realizaremos un bucle con una condición dentro que compare si la división entre numero introducido por el usuario
+                y el número de la iteración actual es igual a 0, en caso de ser igual a 0 se le cambia el valor a false (a la varibale "numeroPrimo")
+                en caso de no serlo se quedaría en true  
+                */
+                for (let i = 2; i < numeroUsuario; i++) {
+                    if ((numeroUsuario % i) == 0) {
+                        numeroPrimo = false;
+                        break;
+                    }
+                }
+                /* 
+                Procederemos a realizar una condición que compare si numero introducido es mayor a 1, si es mayor a 1 lo suma al total al realizar la cuenta
+                en caso contrario no lo suma 
+                */
+                if (numeroUsuario > 1) {
+                    total += numeroUsuario;
+                }
+                // para finalizar suma 1 al valor del contador para realizar la siguiente vuelta de bucle, es decit, que el usuario introduzca otro numero.
+                contador++;
+            }
+            // Mostramos mensaje
+            document.write(`La suma total de números primos es: ${total}`);
+        }
 
-  
+    </script>
+
 </body>
 
 </html>
